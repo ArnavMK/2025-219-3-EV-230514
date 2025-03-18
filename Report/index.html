@@ -1,0 +1,633 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+         body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333; 
+        }
+
+        .section{
+            margin-top: 50px;
+            border-bottom: 3px solid;
+            padding-bottom: 30px;
+            border-image: linear-gradient(to right, transparent , rgba(245, 193, 22, 0.685) , transparent) 1;
+        }
+
+        div {
+            text-align: left;
+            width: 60%;
+        }
+
+        .title {
+            text-align: center;
+            font-size: x-large;
+            width: 100%;
+            position: relative;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 1vw; 
+            height: 1vh; 
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgb(167, 167, 167); 
+            border-radius: 0.5vw; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b4b4b; 
+        }
+
+        ::-webkit-scrollbar-track {
+            background: white; 
+            border-radius: 0.5vw;
+        }
+
+        img {
+            width: 70%;
+            height: auto;
+            margin: 10px;
+        }
+
+        .group {
+            width: 100%;
+            justify-items: center;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+
+        .code-container {
+            background-color: #282c34;
+            border-radius: 8px;
+            color: white;
+            padding: 15px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        .code-header {
+            background-color: #3b3f4a;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            font-size: 14px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            width: 97.6%;
+        }
+
+        .code-header .circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .red { background-color: #ff5f56; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #27c93f; }
+
+        pre {
+            margin: 0;
+            overflow-x: auto;
+        }
+
+        .flexGroup {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            text-align: center;
+            align-content: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .flexGroup img {
+            width: 150%;
+            height: auto;
+            max-width: 250px;
+            align-self: center;
+        }
+
+        .flexGroup div {
+            margin-left: 90px;
+        }
+
+        .controller {
+            position: fixed;
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Adjust for the element's width */
+            bottom: 30px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background-color: #3b3f4a;
+            padding: 10px;
+            border-radius: 7px;
+            width: fit-content;
+        }
+
+        .controller button {
+            padding: 10px 5px;
+            border-radius: 5px;
+            background-color: inherit ;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.1s ease-in;;
+        }
+
+        .controller button:hover {
+            background-color: #54575f;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <center>
+
+        <div class="controller" id="controllerDiv">
+            <button id="MeetingTheBrief-button">Meeting the Brief</button>
+            <button id="Investigation-button">Investigation</button>
+            <button id="PlanDesign-button">Plan And Design</button>
+            <button id="Create-button">Create</button>
+            <button id="Evaluation-button">Evaluation</button>
+            <button id="ReferencesAndWordCount-button">References And Word Count</button>
+        </div>
+
+        <div id="MeetingTheBrief" class="Section">
+            <div class="title">MEETING THE BRIEF</div>
+
+            <br><br>
+            You can find the video <a href="./Video/Final video.mp4">here</a>
+
+            <br>
+        </div>
+
+        <div id="Investigation" class="section">
+
+            <div class="title">INVESTIGATION</div>
+
+            <br>
+
+            The theme that I chose for the project is Education and literacy rates around the world. Before reaching this topic, I reviewed the links included in the brief, so I had a good understanding of what was being requested. Based on this I started exploring different ideas. Here are some of the areas I explored and the reasons why they were not chosen
+
+            <div class="group">
+                <img src="./images/DatasetTopicIdeas_upscaled.png" alt="">
+            </div>
+
+            <ol>
+                <li><b>Meteorite landing on earth:</b>  This topic was the first one that came to mind. There are datasets available on Kaggle but unfortunately, I failed to find any existing websites that properly displayed this information, and felt this topic would not be of interest to a wide audience..</li>
+                <br>
+                <li> <b>Smallpox population data:</b> This topic has vast potential in terms of data analysis, but I felt it may not be very relevant at this time as it is more of an historic disease.            </ol>
+
+            <br>
+            The topic that I settled on is – World education and literacy data. This was an all-rounder topic that is a personal interest of mine and useful for the entire world, households, the government, and economists. With this topic users will gain insights into a country’s education quality. This information system will be aimed at helping individuals (18+) making more informed decisions on their academic futures 
+<br><br>
+            There were many existing information systems that were centered around this topic, which made this topic even more attractive. Here are a few of the existing information systems I found. These are websites that I got inspired from to make the information system, both visually and analytically
+            <br>
+            <ul>
+                <li><b>UNESCO:</b> provides data on literacy rates, enrollment rates, and student to teacher ratio. </li>
+                <li><b>OECD:</b> Analyzes educational performance, funding, and policies in developed countries</li>
+                <li><b>World education data at <a href="https://www.kaggle.com/datasets/nelgiriyewithana/world-educational-data" target="_blank">kaggle</a>:</b> provides enrollment rates, completion rates, OOSR rates and more, in an easy to read format.</li>
+            </ul>
+            <br>
+            <div class="group">
+                <img src="./images/WebsiteIdeas_upscaled.png" alt="">
+            </div>
+
+            <br>
+
+            <b>Trading economics:</b> This website has a great user interface and a multitude of user interactivity, such as type changes, scale changes etc... And it has other suggestions below the graph which shows “related material” and the user can click them to go through them.
+            visit this website <a href="https://tradingeconomics.com/mtcusd:cur" target="_blank">here</a>
+            <div class="group">
+                <img src="./images/Tradingeconomics.png" alt="">
+            </div>
+            <br>
+
+            <b>GitHub Globe:</b>I was also inspired by the GitHub globe website. It’s a 3d globe that shows the commits taking place all over the world. It's made using THREE js. I made it my mission to achieve something like that for this project.
+            <br>
+            visit this website <a href="https://github.com/globe" target="_blank">here</a>
+            <br>
+            <div class="group">
+                <img src="./images/github.png" alt="">
+            </div>
+            <br>
+
+            <b>Drawer System: </b>The website for TUS has an incredible drawer system that reveals more information when clicked. This will be perfect for my website as I can store the canvas inside those drawers. 
+            <br>    
+            visit this website <a href="https://tus.ie/courses/us845/" target="_blank">here</a>
+            <div class="group">
+                <img src="./images/TUS.png" alt="">
+            </div>
+            
+        </div>
+
+        <div id="PlanDesign" class="section">
+
+            <div class="title">PLAN AND DESIGN</div>
+
+            <br>
+
+            The idea I selected for this project was to perform data analysis and visualization on world education. The target audience is people over 18 who are trying to make informed decisions on their/their family's academic futures.
+
+            <br>
+            This information system will provide users with useful information about the following: 
+            <ul>
+                <li><b>Education pressure index:</b> shows how well the education system can keep up with the birthrate</li>
+                <li><b>OOSR:</b> rate shows the percentage of population out of school</li>
+                <li><b>Completion rate</b> shows the percentage of male and female that complete their studies</li>
+                <li><b>Compare and contrast</b>, it will allow the user to compare the unemployment rate, enrollment rates and out of school rates</li>
+            </ul>
+    
+            <br>
+             After exploring the information system, they will be able to make more informed decisions about their academic futures
+            <br>
+            <br>
+            From an ethical point of view, my primary concern would be that the information provided may be used to discriminate against individuals from countries that may not perform as well in the analysis.
+            <br>
+            <br>
+            The information system will meets both the basic and the advanced requirements:
+
+            <ul>
+                <li>The chosen dataset will be cleaned and parsed in python and the data stored on firebase. </li>
+                <li>Python will be used with the appropriate datatype (dictionaries, lists) to carry out the necessary analysis used for the basic python visualizations and for the interactive visualizations on the webpage. This data will be stored on Firebase. </li>
+                <li>An information system will be created to display graphs in an interactive format </li>
+                <li>The website will have a survey section which collects and summarizes user information. The survey will request at least three different data types, and this data will be stored on firebase</li>
+                <li>A separate section at the end of the main page will help the user to make informed decisions based on the previous python analysis</li>
+            </ul>
+
+            I will be following the Agile model for developing my project as I find it easier to do a project bit-by-bit with incremental improvements over many iterations. 
+            <br><br>
+            I will make sure to keep in mind key user interface principles, eg: clean UI, more accessible UI, easy to understand etc... 
+            <br>
+            <br>
+            TECHNOLOGIES THAT WILL BE IN USE: 
+            <ul>
+                <li>Thonny and Visual Studio IDEs for coding the project.</li>
+                <li>Live Server on VS code to run the website. </li>
+                <li>Chart.js for drawing the interactive charts on the webpage, matplotlib for drawing. the basic charts in Python. </li>
+                <li>Three.js for an interactive earth model</li>
+                <li>Firebase to store the cleaned dataset and other information. </li>
+                <li>OBS to record the video and Kdenlive to edit it. </li>
+                <li>The languages used will be Python, JS and HTML/CSS</li>
+            </ul>
+            ARCHITECTURE DIAGRAM: 
+            <br>
+            <div class="group">
+                <img src="./images/Architecture.svg" alt="">
+            </div>
+            Here are the high-level flowcharts for the main pages on the information system.For more detailed flowcharts of other files, got to the project directory
+            <br>
+            <div class="group">
+                <img src="./images/Main.jpg"> 
+                <img src="./images/S.jpg">
+            </div>
+            <br><br>
+            Wireframes
+            <br>
+            <div class="group">
+                <img src="./images/Home.png">
+                <img src="./images/Survey.png">
+                <img src="./images/Graphs.png">
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="section" id="Create">
+
+            <div class="title">CREATE</div>                
+<br>
+            Here is the progress log. <b>NOTE: it includes the holiday weeks as well</b>
+            <br>
+            <div class="group">
+                <img src="./images/ProgressLog1.png" alt="">
+                <img src="./images/ProgressLog2.png" alt="">
+                <img src="./images/ProgressLog3.png" alt="">
+            </div>
+            <br>
+            <br>
+
+            One of the problems I encountered was during the implementation of the download chart functionality in the GraphManager class. Initially the GraphManager destroyed its chart before recreating them with the new information (avoids clipping of visuals when chart type changes), and this caused errors during downloading the chart. Below is the code responsible for that. 
+
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span>GraphManager.js</span>
+                </div>
+                <pre><code class="language-js">
+DownloadChart(chart) {
+
+    let canvas = chart.data.chartCanvas; // access the canvas from the chart
+    let link = document.createElement("a"); 
+    link.href = canvas.toDataURL("image/png");
+    link.download = `${chart.data.chartName}.png`;
+    link.click(); // simulate download.
+
+}
+
+RefreshChartWithNewInformation(chart) {
+
+    this.ResetAllCheckBoxesToDefaultChecked();
+
+    let currentChartName = chart.data.chartName;
+    chart.destroy(); // destroys the chart
+
+    let lookUpObject = {
+        "lineChart" : () => this.CreateLineChart(chart),
+        "OOSR" :  () => this.CreateOOSRChart(chart),
+        "educationIndex" : () => this.CreateEducationIndexChart(chart),
+        "completionRateChart" : () => this.CreateCompletionRateChart(chart)
+    }
+
+    lookUpObject[currentChartName](); // calls the corresponding chart recreation method
+
+}
+                </code></pre>
+            </div>
+
+            <br>
+            This architecture did work, and destroyed charts were successfully replaced by new ones. Although each time a chart was destroyed it held lingering references with the canvas. This became an issue when I made the download functionality.
+            <br>
+
+            I found two solutions for this
+            <ul>
+                <li>To ensure definite destruction of the chart to avoid lingering references and reset the canvas itself.</li>
+                <li>Refactor the entire GraphManager class to work without destroying the chart.</li>
+            </ul>
+
+            The first solution worked and here is the fixed code.
+
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span>ObsoleteGraphManager.js</span>
+                </div>
+                <pre><code class="language-js">
+DownloadChart(chart) {
+
+    let canvas = chart.data.chartCanvas; // access the canvas from the chart
+    let link = document.createElement("a"); 
+    link.href = canvas.toDataURL("image/png");
+    link.download = `${chart.data.chartName}.png`;
+    link.click(); // simulate download.
+
+}
+
+RefreshChartWithNewInformation(chart) {
+
+    this.ResetAllCheckBoxesToDefaultChecked();
+
+    let currentChartName = chart.data.chartName;
+    let canvas = chart.canvas; // store the canvas before destroying
+
+    if (this.charts[chart.data.chartName]) { // find the reference and delete it
+        delete this.charts[chart.data.chartName];
+        chart.destroy(); // then destroy the chart
+    }
+
+    // reset the canvas
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+
+    let lookUpObject = {
+        "lineChart" : () => this.CreateLineChart(chart),
+        "OOSR" :  () => this.CreateOOSRChart(chart),
+        "educationIndex" : () => this.CreateEducationIndexChart(chart),
+        "completionRateChart" : () => this.CreateCompletionRateChart(chart)
+    }
+
+    lookUpObject[currentChartName]();
+
+}
+
+                </code></pre>
+            </div>
+            <br>
+            Even though this solution worked, I took this opportunity to implement the second solution. This meant refactoring the entire class to work without destroying the charts.  
+            <br><br>
+            Implementing this approach improved optimization, as it does not destroy the chart every time the user interacts with it. It also allowed the code to be more readable, and clean.  
+            <br><br>
+            This approach showed a significant increase in performance as seen by these numbers below. The measure the time it took for an interactivity to finish.
+            <br>
+
+            <div class="flexGroup">
+                <div><img src="./images/Destroyperformance.png" alt=""></div>
+                <div><img src="./images/Performance.png" alt=""></div>
+                <div>With Destroying the chart</div> 
+                <div>Without Destroying the charts</div>
+            </div>
+
+            <br>
+            Here is the updated code for the second solution
+            <div class="code-container">
+                <div class="code-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span>GraphManager.js</span>
+                </div>
+                <pre><code class="language-js">
+
+DownloadChart(chart) {
+
+    let link = document.createElement("a");
+    link.href = chart.toBase64Image();   // chart is not destroyed
+    link.download = `${chart.data.chartName}.png`; 
+    link.click(); // simulate download
+
+}
+
+RefreshChart(chart) {
+
+    if (chart.data.hasTypeChanged) {
+        this.ResetChartCheckBoxesToDefaultChecked(chart);
+        chart.data.hasTypeChanged = false;
+    }
+    
+    chart.options.scales = {}; // reset the scales to avoid clipping when type changes
+    chart.update(); // updates the chart instead of destroying.
+
+}
+                </code></pre>
+            </div>
+
+            <br>
+            NOTE: Visit <b>ObsoleteGraphManager</b> and <b>GraphManager</b> to see all the changes.
+            <br>
+            <br>
+            <b>ALGORITHM USED IN DATA ANALYSIS: </b> <br>
+            The main analysis I had to do consisted of means, averages and other formulas to calculate economic measures. The algorithm I implemented to achieve this is detailed below along with the relevant pseudocode             <div class="code-container">
+                <div class="code-header">
+                    <div class="circle red"></div>
+                    <div class="circle yellow"></div>
+                    <div class="circle green"></div>
+                    <span>pseudo.js</span>
+                </div>
+                <pre><code class="language-js">
+// inside GraphCalculations method 
+    // set up the skeleton for the final dataset. 
+
+    // graphDataset = { 
+
+        //“Line of Countries”: [], 
+
+        //“Education Pressure Index: [] .... 
+
+        // set up the rest of the skeleton 
+
+        } 
+
+    // loop through all the countries to fill in the skeleton 
+
+        // perCountryOOSR = get the out of school rate for the 	         		 
+        //current country 
+        // set that in the skeleton. 
+
+        // if the current index is in the index List of 				   		 
+        //completion Rate graph: 
+        // then get the male and female completion rates and set that in 	   
+        //the skeleton. 
+
+        // perCountryEducationPressureIndex = get the education pressure 	   
+        //index for current country. 
+        // set this info in the skeleton. 
+
+        // enrollment = get average enrollment rates for current country 
+        // get the unemployment rate and the OOSR rate and set this in 	   
+        //the skeleton 
+
+    // finally push it to firebase. 
+    // push the skeleton for survey data, so that JavaScript can use it 
+                </code></pre>
+            </div>
+            <br>
+            The OOSR is calculated by getting the total average OOSR across all genders. It shows the percentage of the population out of school. 
+            <br><br>
+            The education pressure index is calculated by subtracting the birth rate from the enrollment rates. This shows whether a country’s education system is able to keep up with the birth rate. 
+
+            <br><br>
+            The completion rates by gender are the average of each gender in each education level. This shows how much percentage of population enrolled complete their education.
+            <br><br>
+
+            I carried out extensive testing of my code. Below is a test table which shows some of the testing that I carried out during the course of the project;
+            <br>
+            Testing data JavaScript;
+            <br>
+            <img src="./images/Testting1.png" alt="">
+            <img src="./images/TEsting2.png" alt="">
+            <img src="./images/testing3.png" alt="">
+        </div> 
+
+        <div id="Evaluation" class="section">
+
+            <div class="title">EVALUATION</div>
+            <br><br>
+
+            My completed project successfully meets all requirements in the project brief.  
+            <br>
+            I used python to successfully read and clean raw data which was then stored on Firebase. From this data I carried out analysis (also sent subsequently to Firebase) which allowed me to create non-interactive graphs using matplotlib and interactive versions of the same graphs in my website.  
+            <br><br>
+            Each graph having the necessary titles and legends where appropriate. 
+            <br><br>
+            There is a separate section on the website that gives suggestions to the user based on the analysis. and the website has a validated survey form that receives and stores the user data in firebase in real time. Those submissions are then summarized and graphed using JavaScript. All the graphs are labeled and easy to use. 
+<br>
+            <br>
+            Listed below are a few ideas that I feel would really improve the website in the future: : 
+            <br>
+            <ul>
+            <li><b>User personalization:</b> I could implement an AI chat bot by either using a prebuilt one (OpenAI, Drift, Dialog Flow etc..) by using their API keys. Or by creating my own using AI frameworks in JavaScript. This would increase the user experience by a huge magnitude, as it would provide personalized outputs. </li>
+            <li> <b>User Authentication (login and sign up) : </b> I was planning to implement this in the project although I did not have enough time for that. With a user authentication, the website can identify the user and give personalized suggestions among other things. </li>
+            <li><b>Improving data quality and insights:</b> I could add a more advanced and qualified data set and then create more accurate measurements of a country’s education quality. I could also implement a feature where users could submit their own data from their particular country which would give a more personal feel to the data set and allow users to get feedback from people who have actually gone through the education system in a particular country and so give an insight beyond just numbers on a screen. </li>
+            </ul>
+        </div>  
+        <div class="section" id="ReferencesAndWordCount">
+            <div class="title">REFERENCES AND WORD COUNT</div>
+
+            <br><br>
+
+            Documentations I used:
+            <ul>
+                <li><a href="https://threejs.org/docs/" target="_blank">Three js docs</a></li>
+                <li><a href="https://www.chartjs.org/docs/latest/" target="_blank">Chart js docs</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/" target="_blank">MDN web docs</a></li>
+                <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools docs</a></li>
+                <li><a href="https://matplotlib.org/stable/" target="_blank">matplotlib</a></li>
+            </ul>
+
+            <br>
+
+            Websites I used for inspiration
+            <ul>
+                <li><a href="https://github.com/globe" target="_blank">GitHub globe</a></li>
+                <li><a href="https://tradingeconomics.com/mtcusd:cur" target="_blank">Trading economics (interactivity)</a></li>
+                <li><a href="https://ourworldindata.org/" target="_blank">Our world in data</a></li>
+                <li><a href="https://tus.ie/courses/us845/" target="_blank">TUS Drawer system</a></li>
+                <li><a href="https://www.cso.ie/en/index.html" target="_blank">Central Statics Office</a></li>
+            </ul>
+
+            Websites I used for topic searching
+            <ul>
+                <li><a href="https://www.unesco.org/en/articles/world-education-statistics-2024" target="_blank">UNESCO data</a></li>
+                <li><a href="https://data.worldbank.org/" target="_blank">World bank of data</a></li>
+                <li><a href="https://www.cso.ie/en/databases/" target="_blank">Central Statics Office</a></li>
+                <li><a href="https://www.kaggle.com/datasets/nelgiriyewithana/world-educational-data" target="_blank">Kaggle world eduction</a></li>
+                <li><a href="https://www.oecd.org/en/publications/education-at-a-glance-2024_c00cad36-en.html" target="_blank">OCED at a glance</a></li>
+            </ul>
+            <br>
+            WORD COUNT:
+            <br>
+            <div class="group">
+                <img src="./images/Word count.png" alt="">
+            </div>
+            <br><br>
+
+            <div class="title">THANK YOU FOR READING MY PROJECT</div>
+
+            <br><br><br>
+        </div>
+    </center>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script>
+        Prism.highlightAll();
+
+        let allButtons = document.getElementById("controllerDiv").children;
+
+        for (let button of allButtons) {
+            button.addEventListener("click", (event) => {
+
+                let divElement = GetParentDiv(event.target);
+                divElement.scrollIntoView({behavior:"smooth"});
+
+            });
+        }
+
+        function GetParentDiv(button) {
+            let buttonString = button.id;
+            let divString = buttonString.split("-")[0];
+            return document.getElementById(divString);
+        }
+    </script>
+</body>
+</html>
