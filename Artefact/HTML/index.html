@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../CSS/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="customMenu"></div>
+    
+    <div id="MainMenu">
+        <img src="../images/WebsiteLogo.png" alt="" width="130" height="30">
+        <a href="./index.html">Home</a>
+        <a href="./EducationSurvey.html">Survey</a>
+        <a href="./Main.html">Graphs</a>
+    </div>
+ 
+    <div class="container">
+        <div class="element">
+            <canvas id="earthCanvas" height="600" width="600"></canvas>
+        </div>
+
+        <div class="element">
+            
+            <div id="TextContainer">
+                <h1>WELCOME TO</h1>
+                <img src="../images/WebsiteLogo2.png" alt="image over here">
+                <br>
+                The only website you will ever need to explore the education quality, systems and conditions across the globe.
+                We have 4 interactive graphs which provide you with a variety of different indexes and economic measures.
+                Explore the rest of the website by visiting different pages through the main menu. Thank you for your time.
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="AboutSectionDiv">
+
+        <div class="aboutGridElement">
+            <div class="Title">About Edugraph</div>
+            <div class="other">Type: Website</div>
+            <div class="other">Pages: 3</div>
+            <div class="other">Graphs: 4</div>
+        </div>
+
+        <div class="aboutGridElement">
+            <div class="Title">About Developers</div>
+            <div class="other">Exam no.: 230514</div>
+        </div>
+
+        <div class="aboutGridElement">
+            <div class="Title">Credits</div>
+            <div class="other">Three js docs</div>
+            <div class="other">Chart js docs</div>
+            <div class="other">MDN web docs</div>
+            <div class="other">Brandmark.io for <br>the logo</div>
+            <div class="other">Thanks to my teacher <br> for his guidance</div>
+        </div>
+    </div>
+
+    <script src="../Javascript/Source/index.js" type="module"></script>
+</body>
+</html>

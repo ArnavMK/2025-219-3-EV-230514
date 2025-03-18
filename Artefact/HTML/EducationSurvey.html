@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Education Survey</title>
+        <link rel="stylesheet" href="../CSS/EducationSurvey.css">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+
+        <div id="ErrorLogger">
+            This is going to be filled with errors pulled by rest of the website
+        </div>
+        
+        <div id="MainMenu">
+            <img src="../images/WebsiteLogo.png" alt="" width="130" height="30">
+            <a href="./index.html">Home</a>
+            <a href="./EducationSurvey.html">Survey</a>
+            <a href="./Main.html">Graphs</a>
+        </div>
+     
+        <div id="EducationSurveyForm">
+
+            <div id="EducationSurveyContent">
+                <label for="Country">Country/Region</label>
+                <input type="text" id="Country" class="info">
+    
+                <br><br>
+                
+                <label for="EducationLevel">Choose the highest level of education available in your country: </label>
+                <select name="EducationLevelSelector" id="EducationLevel" class="info">
+                    <option value="PrePrimary">Pre - Primary</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Secondary">Secondary</option>
+                    <option value="ThirdLevel">Third Level</option>
+                    <option value="Masters">Masters</option>
+                    <option value="PHD">PHD</option>
+                </select>
+                
+                <br><br>
+                
+                <label for="Satisfaction">Are you satisfied with your country or region's education quality: </label>
+                <input type="checkbox" id="Satisfaction" class="info">
+            
+                <br><br>
+    
+                <label for="StudentOrTeacherBool">Are you student:</label>
+                <input type="checkbox" id="StudentOrTeacherBool" class="info">
+    
+                <br><br>
+    
+                <label for="SchoolType">What type of school do you attend:</label>
+                <select name="EducationLevelSelector" id="SchoolType" class="info">
+                    <option value="Private">Private</option>
+                    <option value="Public">Public</option>
+                    <option value="HomeSchooled">Home Schooled</option>
+                    <option value="Religious">Religious</option>
+                </select>
+    
+                <br><br>
+    
+                <label for="AverageClassSize">How many students in an average class</label>
+                <input type="text" id="AverageClassSize" class="info">
+    
+                <input type="submit" id="Submit"></button>
+                <button id="ResultsButton" hidden>See Results</button>
+            </div>
+
+        </div>
+
+        <div class="container" id="ChartContainer">
+            
+            <div class="gridElement">
+                <canvas id="studentTeacherChartCanvas" height="300" width="400"></canvas>
+                Out of all the submitted surveys, this graph shows what percentage were students and what percentage were teachers
+            </div> 
+
+            <div class="gridElement">
+                Out of all the submitted surveys, this chart shows what percentage where satisfied with there country's education
+                quality and which were not.
+                <canvas id="SatisfactionChart" height="300" width="400"></canvas>
+            </div> 
+
+            <div class="gridElement">
+                <canvas id="EducationLevelChart" height="300" width="400"></canvas>
+                This chart shows the variety of max education level entered by the attendees of this survey.
+            </div> 
+
+            <div class="gridElement">
+                Out of all the submitted surveys this graph shows the variety of school types they have attended.
+                For example: public, private, so on..
+                <canvas id="EducationTypeChart" height="300" width="400"></canvas>
+            </div> 
+        </div>
+
+        <script src="../Javascript/Source/EducationSurvey.js" type="module"></script>
+    </body>
+
+</html>

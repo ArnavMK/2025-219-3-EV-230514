@@ -1,0 +1,41 @@
+NAME: CountryListEditorModalController
+TYPE: ES6 class (JS)
+FUNCTION: To provide a simple controller for the user to edit ANY graph's country list (the x-axis). It serves as a general class for
+all the graphs in the website. It will dynamically adjust its internal contents according to the graph it receives.
+
+PROPERTIES: 
+
+1. modal: the actual modal element (dialog tag)
+2. EventSystem: the event system to which outside classes can subscribe to (invokes the save event)
+3. parentChart: As every graph on the website may use this class hence it makes sense to keep track of what chart the modal belongs to at what instance
+4. countryList: the parentChart's country list (the labels key in the chart object)
+5. errorLogger: an instance of the ErrorLogger class (visit that class for more detail)
+
+METHODS:
+
+1. public InitializeModalWithRequestedChart(chart): This is the entry point for outside classes to access this class. The method is provide with a chart whose country 
+   List will be displayed for editing, it is also responsible of setting the parentChart. This method dynamically creates divs for each country
+   and appends them under a parent div as children. (styled asper the programmer). And the method subscribes to the onClick event of every single div made 
+   (The callback function is HandleRemoveOrAddCountryName). And after that it turns on the modal.
+
+2. private InitializeCountryListEditorModal(): The modal contains buttons (with className: controllers) to perform actions on the country list
+   such as remove, add and save. This method basically subscribes to the onClick events from those buttons. (The callback function is HandleRemoveOrAddCountryName);
+
+3. private HandleRemoveOrAddCountryName(event): This is the heart of the class and a callback method for handling both addition and removal of countries
+   This function can be called in two ways, when the user types the country in the input and clicks either the remove or add button in the modal
+   or, when the user directly clicks any country div itself for a fast paced editing (only removal is possible). It uses a lookUpObject instead of a switch
+   for O(1) look ups. The html id of the buttons serve as a key to the object, and the functionality to remove or add the country name are the values of those keys.
+  
+45.private CanRemoveCountryFromList() and private CanAddCountryToList: These are used in the above method as a means of error proofing the editing process. 
+   It checks whether or not the country already exists in the list, whether the input is empty, the country is valid or not, if the list is at max length,etc..
+   and returns a boolean value accordingly.
+
+6. private RefreshCountryListVisual(): This method is called whenever the state of the country list changes (ie, addition,removal etc....). It cleans up the countryList container div
+   (deletes all the country name divs) and redraws them by instantiating the divs again, although with the new and edited country list.
+
+7. private OnSaveButtonClicked(event): this method is like a delivery system for the class, after all the editing is done the user will click the save button which inturn
+   which inturn calls this method. As the class is only responsible for editing the country list and nothing more, it does not actually apply the new list to the parentChart
+   the updating is handled by the GraphManager class. This method just sends all the information through a custom event. The class does not know
+   who is subscribed to this event, this allows the code to decoupled and clean.
+
+ 

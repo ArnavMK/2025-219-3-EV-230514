@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Available Graphs</title>
+    <link rel="stylesheet" href="../CSS/Main.css">
+</head>
+<body>
+
+    
+    <div id="MainMenu">
+        <img src="../images/WebsiteLogo.png" alt="" width="130" height="30">
+        <a href="./index.html">Home</a>
+        <a href="./EducationSurvey.html">Survey</a>
+        <a href="./Main.html">Graphs</a>
+    </div>
+
+
+    <div id="outsideErrorLogger"></div>
+ 
+    <canvas id="earthCanvas" width="500" height="500"></canvas>
+    <div id="customMenu"></div>
+    <dialog class="modal" id="EditCountryListModal">
+        
+        <p>Countries (click to remove): </p>
+
+        <div id="CountryListContainer">
+            <!-- all the countries will be added automatically -->
+        </div>
+        
+        <label for="CountryInput">Country: </label>
+        <input type="text" id="CountryInput" name="input">
+        <button id="Remove" class="controllers" >Remove</button>
+        <button id="Add" class="controllers">Add</button>
+        <button id="Save">Save</button>
+
+        <h5 style="color: red;">NOTE: Please ensure the country actually exists in the dataset</h5>
+
+        <div id="ErrorLogger"></div>
+    </dialog>
+
+    <div class="container">
+        <div class="drawerSystem">
+            <div class="drawer">
+                <button class="drawerHandle">Education pressure index</button>
+                <div class="drawerContent">
+                    This measures the gap between the birth rate and the enrollment rate. This index shows, weather a country is able to
+                    keep up enrollments with increasing population, showing a strong education demand and supply.
+                    <canvas id="chart1" class="chart"></canvas>
+
+                    <select class="GraphEditor" id="GraphTypeSelctor-educationIndex">
+                        <option value="bar">Bar chart</option>
+                        <option value="line">Line chart</option>
+                        <option value="pie">Pie</option>
+                    </select>
+
+                    <button class="GraphEditor" id="CountryListEditor-educationIndex">Edit country List</button>
+                    <button class="GraphEditor" id="ChartDownloader-educationIndex">Download</button>
+                    <button class="secondCloseDrawerButton">Close</button>
+                </div>
+            </div>
+            <div class="drawer">
+                <button class="drawerHandle">Out of school rate</button>
+                <div class="drawerContent">
+                    This pie chart shows the percentage of population in school and out of school, from there respective countries. Using this figure, you can determine the strictness and the 
+                    quality of education.
+                    <canvas id="chart2" class="chart" height="400" width="600"></canvas>
+
+                    <select class="GraphEditor" id="GraphTypeSelctor-OOSR">
+                        <option value="pie">Pie chart</option>
+                        <option value="doughnut">Doughnut</option>
+                        <option value="bar">Bar chart</option>
+                    </select>
+
+                    <button class="GraphEditor" id="ChartDownloader-OOSR">Download</button>
+                    <button class="GraphEditor" id="CountryListEditor-OOSR">Edit country List</button>
+                    <button class="secondCloseDrawerButton">Close</button>
+                </div>
+            </div>
+            <div class="drawer">
+                <button class="drawerHandle">Completion rate levels</button>
+                <div class="drawerContent">
+                    This graph shows the rate of completion for males and females in different countries. The percentage of population 
+                    actually completing their education is known as the completion rate, the higher the completion rate the better.                    
+                    <canvas id="chart3" class="chart"></canvas>
+
+                    <select class="GraphEditor" id="GraphTypeSelctor-completionRateChart">
+                        <option value="bar">Bar chart</option>
+                        <option value="line">Line chart</option>
+                    </select>
+                    
+                    <button class="GraphEditor" id="ChartDownloader-completionRateChart">Download</button>
+
+                    <label for="0-completionRateChart" style="color: rgba(255, 99, 132, 0.8);">Male</label>
+                    <input type="checkbox" class="GraphEditor" id="0-completionRateChart" checked>
+
+                    <label for="1-completionRateChart" style="color: rgba(75, 192, 192, 0.8);">Female</label>
+                    <input type="checkbox" class="GraphEditor" id="1-completionRateChart" checked>
+
+                    <button class="secondCloseDrawerButton">Close</button>
+                </div>
+            </div>
+            <div class="drawer">
+                <button class="drawerHandle">Compare and contrast</button>
+                <div class="drawerContent">
+                    Here you can make your line chart. You can choose from a variety of countries and compare their statistics
+                    in the form of a line chart. using this you can get valuable insights on a country's education quality.
+                    <canvas id="chart4" class="chart"></canvas>
+                    <select class="GraphEditor" id="GraphTypeSelctor-lineChart">
+                        <option value="line">Line chart</option>
+                        <option value="bar">Bar chart</option>
+                    </select>
+
+                    <button class="GraphEditor" id="CountryListEditor-lineChart">Edit country List</button>
+
+                    <label for="0-lineChart" style="color: rgba(54, 162, 235, 1);">Unemployment Rate</label>
+                    <input type="checkbox" id="0-lineChart" class="GraphEditor" checked>
+
+                    <label for="1-lineChart" style="color: rgba(23, 134, 123, 1);">Enrollment Rate</label>
+                    <input type="checkbox" id="1-lineChart" class="GraphEditor" >
+
+                    <label for="2-lineChart" style="color: rgba(223, 58, 52, 1);">OOSR</label>
+                    <input type="checkbox" id="2-lineChart" class="GraphEditor" >
+
+                    <button class="GraphEditor" id="ChartDownloader-lineChart">Download</button>
+                </div>
+            </div>
+            <div class="drawer">
+                <button class="drawerHandle">FAQs and Suggestions</button>
+                <div class="drawerContent">
+                    <div class="question">
+                        <label for="suggestionCountryInput">1. Want to know if a country is good for international education? Enter:</label>
+                        <br>
+                        <input type="text" id="suggestion1-input">
+                        <button class="suggestionSubmit" id="submit-suggestion1">Submit</button>
+                    </div>
+                    <div class="answer">
+                        If we are measuring in terms of Unemployment rate (UR), enrollment rates (ER) and Out of school rates (OOSR)
+                        <br>
+                        A low UR, high ER and a low OOSR suggests that the country has a high quality of education, as it is able to keep
+                        up with demand of education. High employment suggests the education system is capable of producing skilled labour force attracting
+                        foreign investment and economic growth. Although this comes with incredibly high competition and hence poor work life balance. If a country
+                        follows this trend, then it may be good if you want study there.
+
+                        <ul>
+                            <li id="suggestion1">Enter a country to see its rating for the above topic</li>
+                        </ul>
+                    </div>
+
+                    <div class="question">
+                    
+                        <label for="suggestion2-input">2. Want to know if a country has a healthy amount of academic competition? Enter: </label>
+                        <br>
+                        <input type="text" id="suggestion2-input">
+                        <button class="suggestionSubmit" id="submit-suggestion2">Submit</button>
+                    </div>
+                    <div class="answer">
+                        If we are measuring in terms of Enrollment rate (ER), Out of school rate, Unemployment rates (UR).
+                        <br>
+                        then countries with an average trend in those figures will be good options if you are looking to study in an environment with enough competition without being overwhelmingly intense.
+                        Theses trends suggests that their education system is growing steadily (high ER), providing good opportunities while still
+                        having enough competition. A stable UR proves that these countries are in demand for foreign investment.
+                        <ul>
+                            <li id="suggestion2">Enter a country to see its rating for the above topic</li>
+                        </ul>
+                    </div>
+
+                    <div class="question">
+                        <label for="suggestion3-input">3. Want to know if a country has poor education quality? Enter: </label>
+                        <br>
+                        <input type="text" id="suggestion3-input">
+                        <button class="suggestionSubmit" id="submit-suggestion3">Submit</button>
+                    </div>
+                    <div class="answer">
+                        If we are measuring in terms of Unemployment rate (UR), enrollment rates (ER) and Out of school rates (OOSR), then the following
+                        are few of the countries that may have a poor education quality.
+                        Enrollment rates, Unemployment rates and Out of school rates are impactful indicators for a country's education quality and system.
+                        countries who (according to this website's dataset) perform quite low in these areas, may have a poor education quality.
+                        <ul>
+                            <li id="suggestion3">Enter a country to see its rating for the above topic</li>
+                        </ul>
+                    </div>
+                    <button class="secondCloseDrawerButton">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../Javascript/Source/Main.js" type="module"></script>
+</body>
+</html>

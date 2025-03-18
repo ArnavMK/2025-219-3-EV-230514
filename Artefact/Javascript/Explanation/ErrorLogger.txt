@@ -1,0 +1,17 @@
+
+NAME: ErrorLogger
+TYPE: ES6 class (JS)
+FUNCTION: to log any error message onto an error logger element provided on construction (styled as per user)
+
+METHODS: 
+ 
+1. ShowNewError(errorMessage): the only public method that initiates the coroutine (a state machine) for a basic error logger.
+   When called it sets the opacity of the loggerElement to 1 (assuming css has the animation covered) and displays the message.
+   Although if the user creates many errors in a certain amount of time (5s) it causes problems with the visuals on the front end
+   Hence a Map (errorList) and a boolean variable (isFree) were implemented to act as a queue to store the errors one after the other.
+   
+2. HideErrorLogger(errorMessage): a private method called by the above method after it sets the logger's opacity. (called after 5s).
+   It deletes the error previously in the logger from the errorList (via the parameter). If there are any more errors left it repeats the cycle by 
+   calling the above method after a cool down of 402ms to give enough time for the animation (if any).
+ 
+Using a Map automatically filters any duplicate errors that the user might cause, so same errors will only show up once for 5s

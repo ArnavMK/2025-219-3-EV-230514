@@ -1,0 +1,46 @@
+
+NAME: GraphManager
+TYPE: ES6 class (JS)
+FUNCTION: this class creates and manages the interactivity of all the graphs in the main graph page.
+
+PROPERTIES:
+
+1. Data: a private property that holds the entire data dictionary from firebase
+2. Charts: a dictionary that holds all of the charts.
+
+UTILITY METHODS:
+ 
+1. InitializeAllGraphEditorElements: this goes through all the elements that has a class "GraphEditor", and subscribes to particular events
+As this class handles the interactivity for all the graphs, it is important that we identify which elements belongs to which parent charts
+Hence all interactivity types (country list editor, download etc..) go to the same interactivity function. And the ID naming conventions will automatically
+identify what callback is for which chart. Bellow is the function responsible for that.
+
+2. GetParentChartFromGraphEditorString: This method returns the parent chart of an element with graph editor class. this way the the event functions can keep track of 
+what chart to update and change without having to keep 20 if statements. Here is an example of how this function works
+
+    lets say the user changed the type on the EPI chart. all graphEditor elements follow this id naming convention.
+    "[interactivity type]-[name of the chart]", eg: "GraphTypeSelector-OOSR" here the OOSR is the name of the chart that corresponds to the key 
+    of that exact same chart in the charts dictionary.
+
+The function will split the string at "-" and give us the function of the element ("GraphTypeSelector") and the name of the parent chart ("OOSR")
+this way the function dynamically return the parent chart of that of that element in a clean way by this line: let parentElement = this.charts[parentElementID];
+
+3. RefreshChart: this gets called whenever there is an update in the state of the chart. it just resets the scales to avoid clipping of visuals and updates the chart
+it is given that all the new information will be stored before calling this function.
+
+INTERACTIVITY METHODS:
+
+1. HandleNewCountryListSaved: this is a call back function called whenever a new country list has been saved from the country list editor modal class (visit that class for more detail)
+The event provides the chart that has to be updated hence its very clean.
+
+2. HandleTypeChanges : this gets called when any chart's type has to be changed. It gets the new type (from the select tag's current value) and stores that in the chart
+
+3. HandleLegendChanges: this gets called whenever the checkboxes for hiding (or un-hiding) a chart's dataset change states (true or false); The method changes the hidden property in the datasets of the chart.
+
+4. DownloadChart: this gets called when any download button gets clicked. It generates an a tag and clicks it right after the link to the download is set.
+
+CHART CREATION METHODS:
+
+All the charts creation methods basically create the default chart (vanilla charts, before all the interactivity)
+but they add a special getter method in the chart object. This makes sure that whenever the chart information updates such countryList it will
+automatically update itself hence there is no need to create new functions to update those.

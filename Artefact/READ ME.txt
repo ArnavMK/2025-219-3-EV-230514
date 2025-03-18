@@ -1,0 +1,17 @@
+Thank you for reading my project.
+
+To make the project run you need these libraries installed
+
+1. firebase_admin
+2. matplotlib
+3. live server in visual studio code extensions
+
+to run the interactive system open index.html with live server at ./HTML/index.html
+
+if you wish to run the entire project, run the following files in the given order
+
+1. DataParser in ./Python/DataParser.py
+2. DataAnalysis in ./Python/DataAnalysis.py
+3. GraphMaker in ./Python/GraphMaker.py to see the graphs in python
+4. index.html in ./HTML/index.html to start the website
+ 

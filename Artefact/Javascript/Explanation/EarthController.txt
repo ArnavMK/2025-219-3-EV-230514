@@ -1,0 +1,28 @@
+
+NAME: EarthController
+TYPE: ES6 class (JS)
+FUNCTION: this class handles the earth model and clicking functionality. This was a try at making something like the github globe
+
+METHODS:
+
+1. Update: This is like that update method in unity c#. This is required for the scene to render new 
+images (as it rotates)
+
+2. CreateEarthModel: creates the basic sphere mesh and puts a texture on it.
+
+3. CreateMarker: creates the red marker for the users to click on.
+
+4. CreateMarkersForEachCountry: loops through the country list in the class and calls the above function 
+to make the markers for them
+
+5. HandleMouseClickOnMarker: this is the function responsible for handling the raycasting. whenever the user clicks 
+on any marker it will fire an event which the rest of the program can subscribe to.
+
+The clicking is handled by the built in raycasting model in THREE.js.
+
+NAME: Country
+TYPE: ES6 class (JS)
+FUNCTION: this serves as a struct for the earth controller to use. On instantiation it gets the lat long coordinates of the country,
+it then converts them into 3d sphere coordinates;
+The reason for this is because it proved to be incredibly difficult to guess the position in 3d space directly. Hence i looked into this conversion
+because the lat long are in the dataset. 

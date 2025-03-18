@@ -1,0 +1,173 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212; 
+    color: white;
+}
+ 
+#EducationSurveyForm {
+    background-color: #1e1e1e; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    width: 20%;
+    height: fit-content;
+    position: relative;
+    top: 10vh;
+    left: 37vw;
+}
+
+#EducationSurveyContent {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: #cfcfcf; 
+}
+
+input[type="text"],select {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid;
+    border-color: #444444;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+select {
+    width: 100%;
+}
+
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#AreSatisfied {
+    margin-top: 10px;
+}
+
+option {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+input[type = "submit"], button{
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bcd4;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type = "submit"]:hover {
+    background-color: #008ba3;
+}
+
+input[type = "submit"]:disabled, #ResultsButton:disabled {
+    background-color: gray;
+    cursor: default;
+}
+::-webkit-scrollbar {
+    width: 1vw; 
+    height: 1vh; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555; 
+    border-radius: 0.5vw; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+}
+
+::-webkit-scrollbar-track {
+    background: #222; 
+    border-radius: 0.5vw;
+}
+
+#MainMenu {
+    padding: 10px;
+    display: flex;
+    height: min-content;
+    gap: 5px;
+    margin-left: 13px;
+}
+
+#MainMenu img {
+    margin-top: 8px;
+}
+
+#MainMenu a {
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: medium;
+    background-color: inherit;
+    transition: background-color 0.2s ease-in;
+    color: white;
+}
+
+#MainMenu a:hover {
+    background-color:#696868;;
+}
+
+.container {
+    margin-top: 20vh;
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.gridElement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e1e1e; 
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+canvas{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#ErrorLogger {
+    position:fixed;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    background-color:#222;
+    margin: 10px 10px;
+    border-radius: 7px;
+    transition: opacity 0.2s ease-in, opacity 0.2s ease-out;
+}
+
+#ErrorLogger::before{
+    content: "!";
+    position: relative;
+    color: rgb(255, 94, 0);
+    margin-right: 7px;
+}

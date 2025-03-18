@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #cecbcb;
+    height: 100vh;
+    overflow:auto;
+}
+ 
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.element {
+    vertical-align: middle;
+    align-content: center;
+    width: 45vw;
+}
+h1{
+    font-weight: 400;
+    margin: 0;
+    font-family: Lato,Verdana, Geneva, Tahoma, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+img {
+    margin: 0;
+}
+#TextContainer {
+    height: max-content;
+    word-spacing: 2px;
+}
+
+#MainMenu {
+    padding: 10px;
+    display: flex;
+    height: min-content;
+    gap: 5px;
+    margin-left: 13px;
+}
+#MainMenu img {
+    margin-top: 8px;
+}
+
+#MainMenu a {
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    padding: 10px;
+    font-size: medium;
+    margin-left: 0px;
+    background-color: inherit;
+    transition: background-color 0.2s ease-in;
+    color: white;
+}
+
+#MainMenu a:hover {
+    background-color:#696868;;
+}
+
+
+#customMenu {
+    position: absolute;
+    width: 180px;
+    padding: 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+    pointer-events: none;
+    transition: opacity 0.4s ease-out, 
+    transform 0.08s ease-out;
+    color: white;
+    font-size: 12px;
+    z-index: 2;
+}
+canvas{
+    z-index: 1;
+}
+
+#AboutSectionDiv {
+    background-color: rgba(0, 0, 0, 0.849);
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.aboutGridElement div {
+    margin: 5px;
+}
+
+.other{
+    color: #696868;
+}
+
+.Title {
+    font-size: larger;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: rgb(167, 167, 167);
+}
+
+::-webkit-scrollbar {
+    width: 1vw; 
+    height: 1vh; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555; 
+    border-radius: 0.5vw; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888; 
+}
+
+::-webkit-scrollbar-track {
+    background: #222; 
+    border-radius: 0.5vw;
+}
